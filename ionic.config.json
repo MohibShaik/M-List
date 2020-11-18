@@ -1,0 +1,7 @@
+{
+  "name": "M'List",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
