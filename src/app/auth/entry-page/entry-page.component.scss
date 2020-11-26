@@ -1,0 +1,37 @@
+.title-grid {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e5e6e7 !important;
+}
+ion-button {
+    font-weight: 600;
+    font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", sans-serif;
+}
+
+.register-btn {
+    --background: #43d9c5;
+    margin-right: 20px;
+}
+
+.login-btn {
+    --background: #74d14c;
+}
+
+.google-btn{
+    width: 75%;
+    margin-top: 20px;
+    // --background: #fff;
+}
+
+.fb-btn{
+    width: 75%;
+    margin-top: 15px;
+}
+
+
+.text{
+    color: #767676;
+}
+
+.google-logo{
+    padding-right: 10px;
+}
