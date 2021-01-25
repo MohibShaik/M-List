@@ -1,7 +1,4 @@
-.title-grid {
-    padding-bottom: 30px;
-    border-bottom: 1px solid #e5e6e7 !important;
-}
+@import "../../../theme/variables.scss";
 ion-button {
     font-weight: 600;
     font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", sans-serif;
@@ -10,28 +7,52 @@ ion-button {
 .register-btn {
     --background: #43d9c5;
     margin-right: 20px;
+    color: $white-color;
+    text-transform: none;
 }
 
 .login-btn {
     --background: #74d14c;
+    color: $white-color;
+    text-transform: none;
 }
 
-.google-btn{
-    width: 75%;
+.google-btn {
+    width: 80%;
+    margin-top: 30px;
+    text-transform: none;
+}
+
+.fb-btn {
+    width: 80%;
     margin-top: 20px;
-    // --background: #fff;
+    text-transform: none;
 }
 
-.fb-btn{
-    width: 75%;
-    margin-top: 15px;
+.text {
+    color: $grey-color;
 }
 
-
-.text{
-    color: #767676;
-}
-
-.google-logo{
+.google-logo {
     padding-right: 10px;
+    height: 20px;
+    width: 30px;
+}
+
+.fb-logo {
+    padding-right: 10px;
+    height: 15px;
+    width: 30px;
+}
+
+.container {
+    height: 200px;
+    position: relative;
+   
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  
 }

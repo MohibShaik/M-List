@@ -1,31 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import {
-  LoginComponent,
-  RegisterComponent,
-  ForgotPasswordComponent,
-  EntryPageComponent,
-} from "./index";
+import { EntryPageComponent } from ".";
 
 const routes: Routes = [
   {
     path: "",
     component: EntryPageComponent,
-  },
-
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-
-  {
-    path: "register",
-    component: RegisterComponent,
-  },
-
-  {
-    path: "signUp",
-    component: ForgotPasswordComponent,
   },
 ];
 

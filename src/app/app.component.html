@@ -1,3 +1,39 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="../assets/images/avatar.jpg" alt="">
+        <ion-label>
+          <h2>Mohib Shaik</h2>
+          <p>Angular Developer</p>
+        </ion-label>
+      </div>
+
+      <ion-list class="menu-items" lines="none">
+        <ion-item>
+          <ion-icon name="hourglass-outline"></ion-icon>
+          Time Sheet
+        </ion-item>
+        <ion-item>
+          <ion-icon name="people-circle-outline"></ion-icon>
+          Teams
+        </ion-item>
+        <ion-item>
+          <ion-icon name="calendar-clear-outline"></ion-icon>
+          Leaves
+        </ion-item>
+        <!-- <ion-item>Work From Home</ion-item> -->
+        <ion-item>
+          <ion-icon name="exit-outline"></ion-icon>
+          Sign out
+        </ion-item>
+      </ion-list>
+
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

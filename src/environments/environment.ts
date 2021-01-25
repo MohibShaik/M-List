@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiRoot:"https://imtbs-api.azurewebsites.net"
+  apiRoot: "http://localhost:4000"
+  // apiRoot: 'https://imtbs-api-dev.azurewebsites.net'
 };
 
 /*

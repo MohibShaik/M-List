@@ -1,0 +1,36 @@
+ion-tab-bar {
+    --background: #43d9c5;
+    bottom: 15px;
+    position: relative;
+    border-radius: 16px;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.btn-content {
+    display: block;
+    width: 60px;
+    height: 20px;
+    font-size: 13px;
+}
+
+ion-icon{
+    zoom: 1.5;
+}
+
+ion-tab-button {
+    --color-selected: white;
+    text-align: center;
+    &::before {
+        background-color: transparent;
+        display: block;
+        content: "";
+        margin: 0 auto;
+        width: 20px;
+        height: 2px;
+    }
+
+    &.tab-selected::before {
+        background-color: var(--ion-color-primary);
+    }
+}
