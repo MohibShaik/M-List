@@ -38,7 +38,7 @@ ion-content {
 
     .card-slide {
         width: 44% !important;
-    
+
         .card-item {
             border: 1px solid #cccccc;
             width: 100%;
@@ -52,24 +52,24 @@ ion-content {
         border-radius: 0 0 28px 28px;
     }
 
-    ion-slide{
+    ion-slide {
         box-shadow: 5px 5px 5px solid #43d9c5;
     }
 
     ion-card {
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
         box-shadow: none;
         border-radius: 14px;
-        padding: 14px;
         background: rgba(255, 255, 255, 0.8);
         .main {
             width: 60px;
             height: 60px;
-
+            margin: auto;
             border-radius: 50px;
             background: #ffffff;
             box-shadow: 7px 7px 20px #dbdfe2, -7px -7px 20px #ffffff;
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,7 +114,7 @@ ion-content {
         }
     }
 
-    ion-icon{
+    ion-icon {
         zoom: 1.5;
     }
 }
