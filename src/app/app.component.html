@@ -12,23 +12,34 @@
       </div>
 
       <ion-list class="menu-items" lines="none">
-        <ion-item>
-          <ion-icon name="hourglass-outline"></ion-icon>
-          Time Sheet
-        </ion-item>
-        <ion-item>
-          <ion-icon name="people-circle-outline"></ion-icon>
-          Teams
-        </ion-item>
-        <ion-item>
-          <ion-icon name="calendar-clear-outline"></ion-icon>
-          Leaves
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/dashboard/timesheet']">
+            <ion-icon name="hourglass-outline"></ion-icon>
+            Time Sheet
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/dashboard/team']">
+            <ion-icon name="people-circle-outline"></ion-icon>
+            Teams
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/dashboard/leaves']">
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+            Leaves
+          </ion-item>
+        </ion-menu-toggle>
         <!-- <ion-item>Work From Home</ion-item> -->
-        <ion-item>
-          <ion-icon name="exit-outline"></ion-icon>
-          Sign out
-        </ion-item>
+
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="exit-outline"></ion-icon>
+            Sign out
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
 
 
