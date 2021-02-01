@@ -1,6 +1,6 @@
 {
     "identityPoolName": "mlistec11ffa1_identitypool_ec11ffa1",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "mlistec11ffa1",
     "userPoolName": "mlistec11ffa1_userpool_ec11ffa1",
     "autoVerifiedAttributes": [
