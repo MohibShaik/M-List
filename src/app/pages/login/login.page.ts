@@ -5,9 +5,9 @@ import { AuthService, user } from 'src/app/core';
 // import { Auth } from 'aws-amplify';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: "app-login",
+  templateUrl: "./login.page.html",
+  styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
 
@@ -42,5 +42,3 @@ export class LoginPage implements OnInit {
   }
 
 }
-
-
