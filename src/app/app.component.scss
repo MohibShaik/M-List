@@ -1,8 +1,8 @@
 .menu-header-bg {
     height: 180px;
     width: 350px;
-    background: #43d9c5;
-    background: linear-gradient(90deg, #43d9c5 0%, #43d9c5 100%);
+    background: #f24f04;
+    background: linear-gradient(90deg, #f24f04 0%, #f24f04 100%);
     transform: rotate(-15deg);
     border-radius: 10px 10px 10px 50px;
     margin-left: -18px;
@@ -27,14 +27,13 @@
     }
 
     h2 {
-        font-weight: 500;
-        color: #ffffff;
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: 1px;
     }
 
     p {
-        font-weight: 100;
-        color: #6a7977;
-        font-size: 13px;
+        font-size: 16px;
         letter-spacing: 0.4px;
     }
 }

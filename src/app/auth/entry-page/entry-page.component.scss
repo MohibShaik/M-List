@@ -1,19 +1,16 @@
 @import "../../../theme/variables.scss";
 ion-button {
     font-weight: 600;
-    font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", sans-serif;
+   
 }
 
 .register-btn {
-    --background: #43d9c5;
     margin-right: 20px;
-    color: $white-color;
+    
     text-transform: none;
 }
 
 .login-btn {
-    --background: #74d14c;
-    color: $white-color;
     text-transform: none;
 }
 
@@ -30,7 +27,7 @@ ion-button {
 }
 
 .text {
-    color: $grey-color;
+    
 }
 
 .google-logo {

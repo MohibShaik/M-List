@@ -4,16 +4,14 @@
 
 export const environment = {
   production: false,
-  // apiRoot:"https://imtbs-api.azurewebsites.net"
-  apiRoot: "http://localhost:4000"
-  // apiRoot: 'https://imtbs-api-dev.azurewebsites.net'
+  firebaseConfig: {
+    apiKey: "AIzaSyAuX5Dsq3jWTQF2QxZ-6zMdxrSJf3l9xWE",
+    authDomain: "m-list-7ef87.firebaseapp.com",
+    databaseURL: "https://m-list-7ef87.firebaseio.com",
+    projectId: "m-list-7ef87",
+    storageBucket: "m-list-7ef87.appspot.com",
+    messagingSenderId: "799255526080",
+    appId: "1:799255526080:web:d9914481c2a712e3f08b25",
+    measurementId: "G-HRTELBCJ02"
+  }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

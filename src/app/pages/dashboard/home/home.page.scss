@@ -15,13 +15,13 @@ ion-header {
 
     ion-item {
         h3 {
-            font-weight: 700;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 20px;
         }
 
         p {
-            font-weight: 500;
-            font-size: 14px;
+            
+            font-size: 16px;
         }
 
         ion-avatar {
@@ -34,8 +34,6 @@ ion-header {
 // content css
 
 ion-content {
-    --background: linear-gradient(90deg, #43d9c5 0%, #3bbfad 35%, #56ddcb 100%);
-
     .card-slide {
         width: 44% !important;
 
@@ -51,11 +49,6 @@ ion-content {
         padding: 4px 10px 20px 10px;
         border-radius: 0 0 28px 28px;
     }
-
-    ion-slide {
-        box-shadow: 5px 5px 5px solid #43d9c5;
-    }
-
     ion-card {
         display: flex;
         flex-direction: column;

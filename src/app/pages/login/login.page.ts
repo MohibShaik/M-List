@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { LoaderService } from './../../core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService, User } from 'src/app/core';
 // import { Auth } from 'aws-amplify';
 
 @Component({
@@ -9,25 +11,41 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
-  public form: FormGroup;
-  constructor(public router: Router, private fb: FormBuilder) {
+
+  public loginForm: FormGroup;
+  constructor(public router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private loader: LoaderService) {
     this.createForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  public navigateToHomeScreen() {
-    this.router.navigate(["auth"]);
   }
 
+  public navigateToHomeScreen() {
+    this.router.navigate(['auth']);
+  }
+
+
   public createForm() {
-    this.form = this.fb.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required],
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   public ValidateUser() {
-    this.router.navigate(["dashboard"]);
+    this.loader.showLoader();
+    this.authService.SignIn(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).then((response) => {
+      console.log(response);
+      this.router.navigate(['dashboard']);
+      this.loader.hideLoader();
+    }).catch((error) => {
+      console.log(error);
+      this.loader.hideLoader();
+    })
   }
+
 }

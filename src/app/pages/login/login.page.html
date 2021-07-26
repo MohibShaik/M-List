@@ -1,11 +1,5 @@
 <ion-content>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="navigateToHomeScreen()">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
     <ion-title class="ion-text-center title">Log In</ion-title>
   </ion-toolbar>
 
@@ -18,14 +12,14 @@
       </ion-row>
     </ion-grid>
 
-    <form [formGroup]="form" novalidate>
+    <form [formGroup]="loginForm" novalidate>
       <ion-grid class="register-form">
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size="12">
             <div>
               <ion-item>
                 <ion-label position="floating">Email</ion-label>
-                <ion-input class="input-field" formControlName="email"> </ion-input>
+                <ion-input class="input-field" formControlName="email" clearInput> </ion-input>
               </ion-item>
 
               <ion-item>

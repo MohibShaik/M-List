@@ -1,7 +1,7 @@
 <ion-content>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click) = "navigateToHomeScreen()">
+      <ion-button (click)="navigateToHomeScreen()">
         <ion-icon name="chevron-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -31,22 +31,22 @@
             <div>
               <ion-item no-padding>
                 <ion-label position="floating" no-padding>Name</ion-label>
-                <ion-input class="input-field" no-padding> </ion-input>
+                <ion-input class="input-field" no-padding #userName required> </ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Email</ion-label>
-                <ion-input class="input-field"> </ion-input>
+                <ion-input class="input-field" type="text" #email required> </ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Password</ion-label>
-                <ion-input class="input-field"> </ion-input>
+                <ion-input type="password" class="input-field" #password required> </ion-input>
               </ion-item>
             </div>
 
             <div class="btn">
-              <ion-button expand="block" class="register-btn">
+              <ion-button expand="block" class="register-btn" (click)='signUp(email, password , userName)'>
                 Create account
               </ion-button>
             </div>
