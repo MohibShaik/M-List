@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService, user } from 'src/app/core';
+import { AuthService, User } from 'src/app/core';
 // import { Auth } from 'aws-amplify';
 
 @Component({
@@ -33,12 +33,7 @@ export class LoginPage implements OnInit {
   }
 
   public ValidateUser() {
-    this.authService.signUser(this.loginForm.value).subscribe((response: user) => {
-      console.log(response);
-      if (response) {
-        this.router.navigate(['dashboard']);
-      }
-    })
+    
   }
 
 }

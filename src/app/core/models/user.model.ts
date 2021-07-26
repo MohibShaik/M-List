@@ -1,7 +1,7 @@
-export class user {
-    public id?: number;
-    public username: string;
-    public email: string;
-    public roles?: string[]
-    public accessToken?: string
+export class User {
+    // uid: string;
+    email: string;
+    displayName: string;
+    // photoURL: string;
+    emailVerified: boolean;
 }
