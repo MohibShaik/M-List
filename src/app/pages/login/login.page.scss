@@ -1,10 +1,12 @@
-@import "../../../theme/variables.scss";
-
 .title {
     font-size: 15px;
     font-weight: 600;
-    font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", sans-serif;
-    color: $grey-color;
+}
+
+ion-input {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .container {
@@ -21,13 +23,11 @@
 
         h2 {
             font-size: 24px;
-            font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", sans-serif;
-            color: #3bbfad;
         }
 
         p {
-            font-size: 13px !important;
-            color: $grey-color;
+            font-size: 14px !important;
+
             font-weight: 500;
         }
     }
@@ -38,9 +38,8 @@
 
         ion-label,
         .input-field {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
-            color: $grey-color;
         }
     }
 
@@ -52,7 +51,6 @@
         }
 
         .register-btn {
-            color: #ffffff;
             font-weight: 600;
             text-transform: none;
         }
@@ -62,7 +60,6 @@
 .media-wrapper {
     font-size: 15px;
     font-weight: 500;
-    color: $grey-color;
 }
 
 .option {
@@ -77,20 +74,18 @@
 .footer-text {
     font-size: 13px;
     text-align: center;
-    color: $grey-color;
 
     a {
         text-decoration: none;
     }
 }
 
-.option-wrapper{
+.option-wrapper {
     padding-top: 3%;
 }
 
-
-.ios{
-    .footer-text{
+.ios {
+    .footer-text {
         padding: 0px;
     }
 }

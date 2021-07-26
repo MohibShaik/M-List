@@ -9,11 +9,12 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { environment } from "src/environments/environment";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , ReactiveFormsModule , FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , ReactiveFormsModule , FormsModule , HttpClientModule],
   providers: [
     StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
