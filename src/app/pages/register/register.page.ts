@@ -19,9 +19,9 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {}
 
-  public navigateToHomeScreen() {
-    this.router.navigate(["auth"]);
-  }
+  // public navigateToHomeScreen() {
+  //   this.router.navigate(["auth"]);
+  // }
 
   public signUp(email, password, userName) {
     this.loader.showLoader();
