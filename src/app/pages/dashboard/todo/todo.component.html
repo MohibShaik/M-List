@@ -1,0 +1,71 @@
+<ion-toolbar>
+  <ion-title>
+    <h4 class="fw-600 f-16">Hello....</h4>
+    <p class="m-0 grey f-13">{{currentDate}}</p>
+  </ion-title>
+</ion-toolbar>
+
+
+<ion-content color="#fff">
+  <div class="cards-section pt-20">
+    <p class="sub-header">Categories</p>
+    <!-- slides starts  -->
+    <div class="slides ion-margin-bottom">
+      <ion-slides [options]="slidesOptions">
+        <ion-slide class="card-slide">
+          <ion-card class="card-item">
+            <ion-card-content class="ion-text-left">
+              <p class="f-13">40 Tasks</p>
+              <ion-card-title class="ion-margin-bottom card-title">Office Work</ion-card-title>
+              <ion-progress-bar value="0.5" color="warning"></ion-progress-bar>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide class="card-slide">
+          <ion-card class="card-item">
+            <ion-card-content class="ion-text-left">
+              <p class="f-13">10 Tasks</p>
+              <ion-card-title class="ion-margin-bottom card-title">Personal</ion-card-title>
+              <ion-progress-bar value="0.4" color="warning"></ion-progress-bar>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide class="card-slide">
+          <ion-card class="card-item">
+            <ion-card-content class="ion-text-left">
+              <p class="f-13">10 Tasks</p>
+              <ion-card-title class="ion-margin-bottom card-title">Workout</ion-card-title>
+              <ion-progress-bar value="0.4" color="warning"></ion-progress-bar>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+
+      </ion-slides>
+    </div>
+
+  </div>
+
+  <div class="tasks-section">
+    <p class="sub-header">Today's Tasks</p>
+
+    <div class="list">
+      <ion-item lines="none" *ngFor="let t of staticTodoItems">
+        <ion-radio slot="start" color="success" value="apple"></ion-radio>
+        <ion-label>
+          {{t.title}}
+        </ion-label>
+      </ion-item>
+
+    </div>
+  </div>
+
+  <div class="add-btn-section">
+    <ion-button fill='solid' class="add-btn">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </div>
+
+
+</ion-content>

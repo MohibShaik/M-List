@@ -1,42 +1,41 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { pathToFileURL } from 'url';
+import { BudgetComponent } from './budget/budget.component';
 import { DashboardPage } from './dashboard.page';
+import { ProfileComponent } from './profile/profile.component';
+import { StatsComponent } from './stats/stats.component';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
-
-  // path: '',
-  // component: DashboardPage,
-  // children: [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'timesheet',
-    loadChildren: () => import('./timesheet/timesheet.module').then(m => m.TimesheetPageModule)
-  },
-  {
-    path: 'team',
-    loadChildren: () => import('./team/team.module').then(m => m.TeamPageModule)
-  },
-  {
-    path: 'leaves',
-    loadChildren: () => import('./leaves/leaves.module').then(m => m.LeavesPageModule)
-  },
-  {
-    path: 'wfh',
-    loadChildren: () => import('./wfh/wfh.module').then(m => m.WfhPageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'account',
-    loadChildren: () => import('./account/account.module').then(m => m.AccountPageModule)
+    component: DashboardPage,
+    children: [
+      {
+        path: '',
+        redirectTo: 'todo',
+        pathMatch: 'full'
+      },
+      {
+        path: 'todo',
+        component: TodoComponent,
+      },
+      {
+        path: 'stats',
+        component: StatsComponent,
+      },
+      {
+        path: 'budget',
+        component: BudgetComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      }
+    ]
   }
-  // ]
+
 
 ];
 

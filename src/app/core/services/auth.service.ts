@@ -19,6 +19,7 @@ export class AuthService {
   ) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
+        console.log(user , 'user in service');
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
@@ -105,6 +106,18 @@ export class AuthService {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
+    })
+  }
+
+  // get isAuthenticated(): boolean {
+  //   return this.userData !== null;
+  // }
+
+
+  public getCurrentLoggedInUser() {
+    this.ngFireAuth.authState.subscribe((user) => {
+      console.log(user)
+
     })
   }
 

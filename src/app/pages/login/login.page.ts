@@ -54,4 +54,8 @@ export class LoginPage implements OnInit {
         this.loader.hideLoader();
       });
   }
+
+  public navigateToRegister(){
+    this.router.navigate(["/register"]);
+  }
 }

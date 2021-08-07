@@ -1,20 +1,37 @@
-<!-- <ion-content>
-  <ion-tabs (ionTabsDidChange)="CurrentTab($event)">
+<ion-content class="main">
+  <ion-tabs>
 
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
+
+      <ion-tab-button tab="todo">
         <div class="btn-content">
-          <ion-icon name="home"></ion-icon>
+          <ion-icon name="calendar"></ion-icon>
+          <h3 class="m-0 f-13">Todo</h3>
         </div>
       </ion-tab-button>
 
-      <ion-tab-button tab="account">
+      <ion-tab-button tab="stats">
+        <div class="btn-content">
+          <ion-icon name="stats-chart"></ion-icon>
+          <h3 class="m-0 f-13">Stats</h3>
+        </div>
+      </ion-tab-button>
+
+      <ion-tab-button tab="budget">
+        <div class="btn-content">
+          <ion-icon name="wallet"></ion-icon>
+          <h3 class="m-0 f-13">Budget</h3>
+        </div>
+      </ion-tab-button>
+
+      <ion-tab-button tab="profile">
         <div class="btn-content">
           <ion-icon name="person"></ion-icon>
+          <h3 class="m-0 f-13">Profile</h3>
         </div>
       </ion-tab-button>
 
     </ion-tab-bar>
 
   </ion-tabs>
-</ion-content> -->
+</ion-content>

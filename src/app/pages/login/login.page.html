@@ -19,7 +19,7 @@
             <div>
               <ion-item>
                 <ion-label position="floating">Email</ion-label>
-                <ion-input class="input-field" formControlName="email" type='email' clearInput></ion-input>
+                <ion-input class="input-field" formControlName="email" type='email'></ion-input>
               </ion-item>
               <div class="error" *ngIf="f.email.touched && f.email.invalid">
                 <div *ngIf="f.email.errors?.required">
@@ -69,7 +69,7 @@
   <ion-toolbar>
     <ion-title class="footer-text">
       Don't have a account ?
-      <span><a href="#">Register</a></span>
+      <span><a (click)='navigateToRegister()'>Register</a></span>
     </ion-title>
   </ion-toolbar>
 </ion-footer>

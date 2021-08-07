@@ -21,15 +21,15 @@ export class DashboardPage implements OnInit {
 
   }
 
-  public CurrentTab(event) {
-    if (event.tab === 'home') {
-      this.homeIcon = this.homefilledicon;
-      this.accountIcon = this.accountOutlinedIcon;
-    }
-    else if (event.tab === 'account') {
-      this.homeIcon = this.homeOutlinedIcon;
-      this.accountIcon = this.accountFilledIcon;
-    }
-  }
+  // public CurrentTab(event) {
+  //   if (event.tab === 'home') {
+  //     this.homeIcon = this.homefilledicon;
+  //     this.accountIcon = this.accountOutlinedIcon;
+  //   }
+  //   else if (event.tab === 'account') {
+  //     this.homeIcon = this.homeOutlinedIcon;
+  //     this.accountIcon = this.accountFilledIcon;
+  //   }
+  // }
 
 }

@@ -6,7 +6,7 @@
 }
 
 .container {
-    padding-left: 30px;
+    padding: 50px 30px 0px 30px;
 
     .intro-wrapper {
         padding-top: 20px;
@@ -28,26 +28,32 @@
     }
 
     ion-item {
-        margin-right: 30px;
-        margin-top: 10px;
+        margin-top: 30px;
+        min-height: 55px;
+        border: 1px solid;
+        border-radius: 10px;
 
         ion-label,
         .input-field {
-            font-size: 13px;
+            font-size: 16px;
+            letter-spacing: 0.8px;
             font-weight: 500;
         }
     }
 
     .register-form {
-        padding-top: 20px;
+        padding-top: 0px;
         .btn {
-            padding-top: 20px;
-            margin-right: 30px;
+            padding-top: 30px;
+            // margin-right: 30px;
         }
 
         .register-btn {
             font-weight: 600;
             text-transform: none;
+            min-height: 50px;
+            font-size: 16px;
+            letter-spacing: 1px;
         }
     }
 }
@@ -77,4 +83,9 @@
     .footer-text {
         padding: 0px;
     }
+}
+
+.error {
+    padding-top: 5px;
+    color: red;
 }
