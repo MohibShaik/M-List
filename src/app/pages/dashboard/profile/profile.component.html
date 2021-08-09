@@ -1,3 +1,77 @@
-<p>
-  profile works!
-</p>
+<ion-toolbar>
+  <ion-title>
+    <h4 class="fw-600 f-18">Profile</h4>
+  </ion-title>
+</ion-toolbar>
+
+<ion-content class="card-background-page">
+  <!-- 1st card  -->
+  <ion-card  class="profile-card">
+    <div class="header">
+      <!-- 1st div  -->
+      <div class="profile-image">
+        <img src="assets/images/girl.jpg" />
+      </div>
+
+      <!-- 2nd div  -->
+      <div class="info">
+        <h4>Mohib Shaik </h4>
+        <p>Credit SCore</p>
+      </div>
+
+    </div>
+  </ion-card>
+
+  <!-- 2nd card  -->
+  <ion-card class="info-card">
+
+    <div class="card-info">
+      <!-- 1st div -->
+      <div class="details">
+        <p>united bank</p>
+
+      </div>
+      <!-- 2nd div -->
+      <div class="update-btn">
+        <ion-button color="primary" class="btn">Update</ion-button>
+      </div>
+    </div>
+  </ion-card>
+
+  <!-- 3rd card  -->
+  <ion-card class="form-card">
+    <ion-list>
+      <ion-item lines="none" class="pt-15 pb-15">
+        <div class="form-info">
+          <ion-label class="fs-12">Username</ion-label>
+          <p class="fw-600 f-16">Mohib Shaik</p>
+        </div>
+      </ion-item>
+
+
+      <ion-item lines="none" class="pb-15">
+        <div class="form-info">
+          <ion-label class="fs-15">Email</ion-label>
+          <p class="fw-600 f-16">Mohib.Shaik@gmail.com</p>
+        </div>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <div class="form-info">
+          <ion-label class="fs-20">Password</ion-label>
+          <p class="fw-600 f-16">..............</p>
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+  </ion-card>
+
+  <!-- <ion-button expand="full">Full Button</ion-button> -->
+  <ion-button expand="block" color="primary" class="out-btn">Log Out</ion-button>
+
+
+
+
+</ion-content>

@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profile-image {
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+}
+.fw-600 {
+    font-weight: 600;
+}
+
+.f-18 {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.profile-card {
+    border-radius: 10px;
+    background-color: ghostwhite;
+    color: orangered;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.update-btn {
+    padding-top: 15px;
+}
+.update-btn {
+    .btn{
+        border:3px solid whitesmoke;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+    
+}
+.info-card {
+    min-height: 80px;
+    background-color: orangered;
+    color: whitesmoke;
+    // padding-top: 10px;
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+.form-card {
+    background-color: gainsboro;
+}
+
+.form-info {
+    display: flex;
+    flex-direction: column;
+}
+.fs-12{
+    font-weight: 400;
+    font-size: 15px;
+    color: orangered;
+    letter-spacing: 0.5px;
+}
+
+.fs-15{
+    font-weight: 400;
+    font-size: 15px;
+    color: orangered;
+    letter-spacing: 0.5px;
+}
+
+.fs-20{
+    font-weight: 400;
+    font-size: 15px;
+    color: orangered;
+    letter-spacing: 0.5px;
+}
+
+.pb-15 {
+    padding-bottom: 15px;
+}
+
+.pt-15 {
+    padding-top: 15px;
+}
+.out-btn{
+    font-weight: 600;
+    font-size: 14px;
+}
