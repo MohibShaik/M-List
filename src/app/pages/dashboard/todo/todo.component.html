@@ -11,7 +11,7 @@
     <p class="sub-header">Categories</p>
     <!-- slides starts  -->
     <div class="slides ion-margin-bottom">
-      <ion-slides [options]="slidesOptions">
+      <ion-slides>
         <ion-slide class="card-slide">
           <ion-card class="card-item">
             <ion-card-content class="ion-text-left">
@@ -62,7 +62,7 @@
   </div>
 
   <div class="add-btn-section">
-    <ion-button fill='solid' class="add-btn">
+    <ion-button fill='solid' class="add-btn" (click)="createNewTask()">
       <ion-icon name="add"></ion-icon>
     </ion-button>
   </div>

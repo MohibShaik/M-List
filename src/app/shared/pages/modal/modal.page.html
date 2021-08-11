@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/budget" (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h4 class="fw-600 f-18">Create budget</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="createBudgetForm">
+      <ion-row>
+        <ion-col text-center size="12">
+
+          <!-- <ion-slides [options]="slideOpts"> -->
+
+          <!-- <ion-slide class="card-slide" *ngFor="let category of categoryList">
+            <ion-card class="card-item">
+              <ion-card-content class="ion-text-left">
+                <div class="category-icon">
+                  <img src="../../../../assets/images/grocery-cart.png" alt="">
+                </div>
+                <ion-card-title class="ion-margin-bottom card-title">{{category.categoryName}}</ion-card-title>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide> -->
+
+          <!-- </ion-slides> -->
+
+          <ion-item>
+            <ion-label position="floating">Choose Category</ion-label>
+            <ion-select placeholder="Select One" formControlName="categoryType">
+              <ion-select-option value="f">groceries</ion-select-option>
+              <ion-select-option value="m">home loan</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+
+      <!-- 2nd row  -->
+      <ion-row>
+        <ion-col class="col-value" text-center size="12">
+          <ion-item>
+            <ion-label position="floating">Budget Name</ion-label>
+            <ion-input formControlName="categoryName" placeholder="enter the budget name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col class="col-value" text-center size="12">
+          <ion-item>
+            <ion-label position="floating">Enter Budget</ion-label>
+            <ion-input formControlName="categoryAmount" placeholder="enter the budget value"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col textContent size="12">
+          <ion-button expand="block" color="primary" class="out-btn" [disabled]="!createBudgetForm.valid" (click)="onSubmittingBudget()">Create Budget
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/todo" (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h4 class="fw-600 f-18">Creat New Task</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="taskCreationForm">
+      <ion-row>
+        <ion-col textContent size="12">
+          <ion-item>
+            <ion-label position="floating">Task Title</ion-label>
+            <ion-input formControlName="title" placeholder="enter the Task name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-list radio-group>
+            <ion-item *ngFor="let priority of priorityList">
+              <ion-label>{{priority.viewValue}}</ion-label>
+              <ion-radio formControlName="priority" [value]="priority.value"></ion-radio>
+            </ion-item>
+
+          </ion-list>
+
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row>
+      <ion-col textContent size="12">
+        <ion-item>
+          <ion-label position="floating">Due Date</ion-label>
+          <ion-input placeholder="enter the "></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+      <ion-row>
+        <ion-col textContent size="12">
+          <ion-button expand="block" color="primary" (click)="onSubmittingTask()" class="out-btn">Done
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
