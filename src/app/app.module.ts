@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CommonModule } from "@angular/common";
+import { DataService } from "./core/services/data.service";
 // import { environment } from '../environments/environment';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CommonModule } from "@angular/common";
     AngularFireDatabaseModule,
     AngularFirestoreModule],
   providers: [
+    DataService,
     StatusBar,
     AngularFirestoreModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -9,6 +9,7 @@ import { TodoComponent } from "./todo/todo.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { BudgetComponent } from "./budget/budget.component";
 import { TaskCreationComponent } from "./todo/task-creation/task-creation.component";
+import { DataService } from "src/app/core/services/data.service";
 
 @NgModule({
   imports: [
@@ -25,5 +26,6 @@ import { TaskCreationComponent } from "./todo/task-creation/task-creation.compon
     BudgetComponent,
     TaskCreationComponent,
   ],
+  providers:[DataService]
 })
 export class DashboardPageModule {}

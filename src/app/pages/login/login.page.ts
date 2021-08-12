@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
   }
 
   public ValidateUser() {
-    this.loader.showLoader();
+    // this.loader.showLoader();
     this.authService
       .SignIn(
         this.loginForm.controls["email"].value,
@@ -47,11 +47,11 @@ export class LoginPage implements OnInit {
       .then((response) => {
         console.log(response);
         this.router.navigate(["dashboard"]);
-        this.loader.hideLoader();
+        // this.loader.hideLoader();
       })
       .catch((error) => {
         console.log(error);
-        this.loader.hideLoader();
+        // this.loader.hideLoader();
       });
   }
 
