@@ -4,5 +4,5 @@
 
 export const environment = {
   production: false,
-  baseURL: 'https://m-list-server.herokuapp.com/api/',
+  baseURL: 'https://m-list-server.herokuapp.com/api',
 };
