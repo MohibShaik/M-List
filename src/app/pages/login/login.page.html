@@ -32,7 +32,8 @@
 
               <ion-item lines="none">
                 <ion-label position="floating">Password</ion-label>
-                <ion-input class="input-field" type='password' formControlName="password"></ion-input>
+                <ion-input class="input-field" [type]="passwordType" formControlName="password"></ion-input>
+                <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
               </ion-item>
               <div class="error" *ngIf="f.password.touched && f.password.invalid">
                 <div *ngIf="f.password.errors?.required">
@@ -42,7 +43,7 @@
 
             </div>
             <div class="btn">
-              <ion-button expand="block" class="register-btn" (click)="ValidateUser()">
+              <ion-button expand="block" class="register-btn" (click)="ValidateUser()" [disabled]="loginForm?.invalid">
                 Login
               </ion-button>
             </div>
@@ -63,6 +64,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
 </ion-content>
 
 <ion-footer class="ion-no-border">

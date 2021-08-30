@@ -15,6 +15,31 @@
     padding-top: 20px;
 }
 
+.d-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.emoji {
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 40%;
+        margin-top: 20px;
+    }
+}
+
+.w-50 {
+    width: 50px;
+}
+
+.w-25{
+    width: 25px;
+    height: 25px;
+    margin-top: 14px;
+}
+
 // content css
 
 ion-content {
@@ -112,7 +137,7 @@ ion-content {
     }
 
     ion-item {
-        width: 85%;
+        width: 90%;
         margin: auto;
         margin-top: 15px;
         border: 1px solid;

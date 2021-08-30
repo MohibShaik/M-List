@@ -1,11 +1,5 @@
 <ion-content>
   <ion-toolbar>
-    <!-- <ion-buttons slot="start">
-      <ion-button (click)="navigateToHomeScreen()">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons> -->
-
     <ion-title class="ion-text-center title">Register</ion-title>
   </ion-toolbar>
 
@@ -29,18 +23,19 @@
         <ion-row color="primary" justify-content-center>
           <ion-col align-self-center size="12">
             <div>
-              <ion-item no-padding>
-                <ion-label position="floating" no-padding>Name</ion-label>
-                <ion-input class="input-field" formControlName="name" type='text'> </ion-input>
+              <!-- username  -->
+              <ion-item lines="none">
+                <ion-label position="floating" no-padding>User Name</ion-label>
+                <ion-input class="input-field" formControlName="username" type='text'> </ion-input>
               </ion-item>
-              <div class="error" *ngIf="f.name.touched && f.name.invalid">
-                <div *ngIf="f.name.errors?.required">
-                  Name is Required
+              <div class="error" *ngIf="f.username.touched && f.username.invalid">
+                <div *ngIf="f.username.errors?.required">
+                  User Name is Required
                 </div>
               </div>
 
-
-              <ion-item>
+              <!-- email  -->
+              <ion-item lines="none">
                 <ion-label position="floating">Email</ion-label>
                 <ion-input class="input-field" formControlName="email" type='email'> </ion-input>
               </ion-item>
@@ -53,9 +48,36 @@
                 </div>
               </div>
 
+              <!-- Gender -->
+              <ion-item lines="none">
+                <ion-label>Gender</ion-label>
+                <ion-select formControlName="gender">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <div class="error" *ngIf="f.gender.touched && f.gender.invalid">
+                <div *ngIf="f.gender.errors?.required">
+                  Gender is Required
+                </div>
+              </div>
 
 
-              <ion-item>
+              <ion-item lines="none">
+                <ion-label position="floating">Mobile Number</ion-label>
+                <ion-input type="text" class="input-field" formControlName="mobileNumber"
+                  onkeypress="return isNumber(event)" maxlength="10"> </ion-input>
+              </ion-item>
+              <div class="error" *ngIf="f.mobileNumber.touched && f.mobileNumber.invalid">
+                <div *ngIf="f.mobileNumber.errors?.required">
+                  Mobile Number is Required
+                </div>
+              </div>
+
+
+
+              <ion-item lines="none">
                 <ion-label position="floating">Password</ion-label>
                 <ion-input type="password" class="input-field" formControlName="password"> </ion-input>
               </ion-item>
@@ -94,7 +116,7 @@
   <ion-toolbar>
     <ion-title class="footer-text">
       Already have an account?
-      <span><a href="#">Log in</a></span>
+      <span><a [routerLink]="'/login'" routerLinkActive="router-link-active">Log in</a></span>
     </ion-title>
   </ion-toolbar>
 </ion-footer>

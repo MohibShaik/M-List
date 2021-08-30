@@ -1,7 +1,10 @@
 export class User {
-    // uid: string;
+    id?: number;
+    username?: string;
     email: string;
-    displayName: string;
-    // photoURL: string;
-    emailVerified: boolean;
+    gender?: string;
+    mobileNumber?: string;
+    password: string;
+    roles?: string[];
+    accessToken?: string
 }

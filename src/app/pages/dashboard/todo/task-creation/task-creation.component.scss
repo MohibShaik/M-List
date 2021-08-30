@@ -1,0 +1,46 @@
+.input-wrapper {
+    ion-item {
+        // margin-right: 30px;
+        margin-top: 10px;
+        min-height: 55px;
+        border: 1px solid;
+        border-radius: 10px;
+
+        ion-label,
+        .input-field {
+            font-size: 15px;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+    }
+}
+
+.priority-item {
+    ion-item {
+        margin-top: 10px;
+        // min-height: 55px;
+        border: 1px solid;
+        border-radius: 10px;
+
+        ion-label,
+        .input-field {
+            font-size: 14px;
+            padding-left: 7px;
+        }
+    }
+
+    ion-radio {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.error {
+    padding-top: 5px;
+    color: red;
+    font-size: 13px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}

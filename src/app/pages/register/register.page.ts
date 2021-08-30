@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AuthService, User } from "src/app/core";
 import { StorageService } from "src/app/core/services/storage.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "app-register",
@@ -18,6 +19,7 @@ export class RegisterPage implements OnInit {
     private storageService: StorageService,
     private loader: LoaderService,
     private fb: FormBuilder,
+    public toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -27,8 +29,10 @@ export class RegisterPage implements OnInit {
   public createForm() {
     this.registerForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
+      username: ["", Validators.required],
+      gender: ["", Validators.required],
       password: ["", Validators.required],
-      name: ["", Validators.required],
+      mobileNumber: ["", Validators.required],
     });
   }
 
@@ -36,32 +40,42 @@ export class RegisterPage implements OnInit {
     return this.registerForm.controls;
   }
 
-  // public navigateToHomeScreen() {
-  //   this.router.navigate(["auth"]);
-  // }
+  public signUp() {
+    if (this.registerForm.invalid) {
+      return
+    }
 
-  public signUp(email, password, userName) {
-    this.loader.showLoader();
-    this.authService
-      .RegisterUser(this.registerForm.controls["email"].value,
-        this.registerForm.controls["password"].value)
-      .then((res) => {
-        // this.storageService.setItem('accessId' , res.idToken )
-        const currentUser: User = {
-          displayName: this.registerForm.controls["name"].value,
-          email: this.registerForm.controls["email"].value,
-          emailVerified: false,
-        };
-        console.log(currentUser, "currentUser");
-        this.authService.SetUserData(currentUser).then((response) => {
-          console.log(response, "set user data");
-          this.loader.hideLoader();
-          this.router.navigate(["dashboard"]);
-        });
+    else {
+      this.authService.createNewUser(this.registerForm.value).subscribe(response => {
+        console.log(response);
+        this.presentToast('Thanks! your account has been successfully created.', 'success');
+        this.router.navigate(['login'])
+      }, (error) => {
+        console.log(error);
+
+        if (error.status === 400) {
+          this.presentToast('User already exists', 'danger')
+        }
       })
-      .catch((error) => {
-        this.loader.hideLoader();
-        window.alert(error.message);
-      });
+    }
   }
+
+  async presentToast(message: string, color: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      color: color
+    });
+    toast.present();
+  }
+
+  public isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
 }

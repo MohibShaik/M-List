@@ -10,7 +10,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { BudgetComponent } from "./budget/budget.component";
 import { TaskCreationComponent } from "./todo/task-creation/task-creation.component";
 import { DataService } from "src/app/core/services/data.service";
-
+import { CalendarModule } from 'ion2-calendar';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +18,7 @@ import { DataService } from "src/app/core/services/data.service";
     ReactiveFormsModule,
     IonicModule,
     DashboardPageRoutingModule,
+    CalendarModule
   ],
   declarations: [
     DashboardPage,
@@ -26,6 +27,7 @@ import { DataService } from "src/app/core/services/data.service";
     BudgetComponent,
     TaskCreationComponent,
   ],
-  providers:[DataService]
+  entryComponents: [TaskCreationComponent],
+  providers: [DataService]
 })
-export class DashboardPageModule {}
+export class DashboardPageModule { }

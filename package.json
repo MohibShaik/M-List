@@ -28,6 +28,7 @@
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-splashscreen": "^6.0.0",
     "firebase": "^8.8.0",
+    "ion2-calendar": "^3.0.0-rc.0",
     "moment": "^2.29.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

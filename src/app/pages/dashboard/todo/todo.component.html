@@ -1,7 +1,18 @@
 <ion-toolbar>
   <ion-title>
-    <h4 class="fw-600 f-16">Hello....</h4>
-    <p class="m-0 grey f-13">{{currentDate}}</p>
+    <div class="d-flex">
+      <div class="user-info">
+        <h4 class="fw-600 f-16">Hello ,
+          <ion-text color="primary">{{userData?.username}}</ion-text>
+        </h4>
+        <p class="m-0 grey f-13">{{currentDate}}</p>
+      </div>
+
+      <div class="emoji">
+        <img src="../../../../assets/images/avatar.jpg" alt="">
+      </div>
+
+    </div>
   </ion-title>
 </ion-toolbar>
 
@@ -48,17 +59,28 @@
   </div>
 
   <div class="tasks-section">
-    <p class="sub-header">Today's Tasks</p>
+    <p class="sub-header">Today's Plan</p>
+    <ion-list>
+      <ion-item-sliding #slidingItem>
+        <ion-item lines="none" *ngFor="let t of AllTasks" (click)="closeItem(slidingItem)">
+          <ion-radio slot="start" color="success" value="apple"></ion-radio>
+          <ion-label>
+            {{t.title}}
+          </ion-label>
+        </ion-item>
+        <ion-item-options>
 
-    <div class="list">
-      <ion-item lines="none" *ngFor="let t of staticTodoItems">
-        <ion-radio slot="start" color="success" value="apple"></ion-radio>
-        <ion-label>
-          {{t.title}}
-        </ion-label>
-      </ion-item>
+          <ion-item-option color="secondary" class="w-50">
+            <ion-icon slot="icon-only" name="trash" color="primary" class="w-25 h-25"></ion-icon>
+          </ion-item-option>
 
-    </div>
+          <ion-item-option color="secondary" class="w-50" (click)="closeItem(slidingItem)">
+            <ion-icon slot="icon-only" name="close" class="w-25 h-25"></ion-icon>
+          </ion-item-option>
+
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </div>
 
   <div class="add-btn-section">

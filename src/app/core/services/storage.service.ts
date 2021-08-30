@@ -7,25 +7,25 @@ export class StorageService {
   constructor() { }
 
   public setItem(key: string, value: any) {
-    sessionStorage.setItem(key, value);
+    localStorage.setItem(key, value);
   }
 
   public getItem(key: string) {
-    return JSON.parse(sessionStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key));
   }
 
   public removeItem(key: string) {
-    sessionStorage.removeItem(key);
+    localStorage.removeItem(key);
   }
 
   public updateItem(key, name, value) {
-    let data = sessionStorage.getItem(key);
+    let data = localStorage.getItem(key);
     let existingData = data ? JSON.parse(data) : {};
     existingData[name] = value;
-    sessionStorage.setItem(key, JSON.stringify(existingData));
+    localStorage.setItem(key, JSON.stringify(existingData));
   }
 
   public clearStorage() {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }
