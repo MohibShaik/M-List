@@ -34,15 +34,39 @@ export class TaskCreationComponent implements OnInit {
     });
   }
 
-  public
-    = [
-      { viewValue: "High", value: 1 },
-      { viewValue: "Medium", value: 2 },
-      { viewValue: "Low", value: 3 },
-    ];
+  public = [
+    { viewValue: "High", value: 1 },
+    { viewValue: "Medium", value: 2 },
+    { viewValue: "Low", value: 3 },
+  ];
+
+  // todo : have to prepare a final todo categoriies and load from DB 
+  public taskCategories = [
+    {
+      id: 1,
+      value: "Personal"
+    },
+    {
+      id: 2,
+      value: "Fitness"
+    },
+    {
+      id: 3,
+      value: "Office"
+    },
+    {
+      id: 4,
+      value: "Cleaning"
+    },
+    {
+      id: 5,
+      value: "Travel"
+    },
+  ]
 
   ngOnInit() {
-    this.userData = this.storage.getItem('user');
+    this.userData = JSON.parse(this.storage.getItem('user'));
+
   }
 
   get f() {

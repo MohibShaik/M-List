@@ -2,7 +2,7 @@ import { StorageService } from './../../../core/services/storage.service';
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import * as moment from "moment";
-import { AuthService, ToastService, TodoService, User } from "src/app/core";
+import { AuthService, Task, ToastService, TodoService, User } from "src/app/core";
 import { TaskCreationComponent } from "./task-creation/task-creation.component";
 
 
@@ -12,7 +12,6 @@ import { TaskCreationComponent } from "./task-creation/task-creation.component";
   styleUrls: ["./todo.component.scss"],
 })
 export class TodoComponent implements OnInit {
-
   public currentDate: string;
   public slidesOptions = {
     initialSlide: 3,
@@ -30,14 +29,14 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.currentDate = moment().format(" Do MMM  YY");
-    this.userData = this.storage.getItem('user');
+    this.userData = JSON.parse(this.storage.getItem('user'));
     this.getAllTasks();
   }
 
   public getAllTasks() {
     this.todoService.getAllTasks(this.userData?.id).subscribe(response => {
       console.log(response);
-      // this.AllTasks = response.filter();
+      this.AllTasks = response.filter(task => task.status.toLowerCase() === 'active' || task.status.toLowerCase() === 'completed');
     }, (error) => {
       this.toastService.presentToast('Oops! something went wrong.', 'danger');
     })
@@ -52,6 +51,38 @@ export class TodoComponent implements OnInit {
     });
 
     return await modalRef.present();
+  }
+
+
+  public deleteTask(task: Task, slidingItem) {
+    this.todoService.deleteTask(task?.id).subscribe(response => {
+      console.log(response);
+      slidingItem.close();
+      this.getAllTasks();
+    }, (error) => {
+      this.toastService.presentToast('Oops! something went wrong.', 'danger');
+    })
+  }
+
+  public updateTask(task: Task, slidingItem) {
+    const taskData = {
+      category: task.category,
+      description: task.description,
+      dueDate: task.dueDate,
+      id: task.id,
+      priority: task.priority,
+      status: "completed",
+      title: task.title,
+      userId: task.userId
+    }
+
+    this.todoService.updateTask(taskData, task?.id).subscribe(response => {
+      console.log(response);
+      slidingItem.close();
+      this.getAllTasks();
+    }, (error) => {
+      this.toastService.presentToast('Oops! something went wrong.', 'danger');
+    })
   }
 
   public closeItem(slidingItem) {

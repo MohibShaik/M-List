@@ -42,8 +42,15 @@
       <ion-row>
         <ion-col size="12" class="input-wrapper">
           <ion-item lines="none">
-            <ion-label position="floating">Category</ion-label>
-            <ion-input class="input-field" formControlName="category" type='text'></ion-input>
+
+            <ion-label position="floating">Choose Category</ion-label>
+            <ion-select formControlName="category">
+              <ion-select-option *ngFor="let c of taskCategories" [value]="c.value">{{c.value}}</ion-select-option>
+
+            </ion-select>
+
+            <!-- <ion-label position="floating">Category</ion-label>
+            <ion-input class="input-field" formControlName="category" type='text'></ion-input> -->
           </ion-item>
           <div class="error" *ngIf="f.category.touched && f.category.invalid">
             <div *ngIf="f.category.errors?.required">

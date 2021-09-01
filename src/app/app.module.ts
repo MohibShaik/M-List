@@ -17,6 +17,7 @@ import { DataService } from "./core/services/data.service";
 import { HttpCallInterceptor } from "./core/utils/http.interceptor";
 // import { environment } from '../environments/environment';
 import { CalendarModule } from 'ion2-calendar';
+import { AuthGuard } from "./core/guards/auth.guard";
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,8 @@ import { CalendarModule } from 'ion2-calendar';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpCallInterceptor,
       multi: true
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

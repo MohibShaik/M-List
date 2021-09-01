@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core';
+import { AuthService, StorageService, User } from 'src/app/core';
 
 @Component({
   selector: 'app-profile',
@@ -8,12 +9,18 @@ import { AuthService } from 'src/app/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  public userData: User
+  constructor(private authService: AuthService,
+    private storage: StorageService,
+    private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userData = JSON.parse(this.storage.getItem('user'));
+  }
 
   public logOut() {
-    
+    this.storage.clearStorage();
+    this.router.navigate(['login'])
   }
 
 }

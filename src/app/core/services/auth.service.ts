@@ -1,3 +1,4 @@
+import { StorageService } from './storage.service';
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
@@ -10,7 +11,7 @@ import { User } from '..';
 
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storage: StorageService) { }
 
   public createNewUser(userData: User): Observable<User> {
     return this.http.post<User>(`${environment.baseURL}/auth/signup`, userData)
@@ -20,9 +21,8 @@ export class AuthService {
     return this.http.post<User>(`${environment.baseURL}/auth/signin`, userData)
   }
 
-
-
-
-
+  public getToken(): boolean {
+    return !!this.storage.getItem("accessToken");
+  }
 
 }

@@ -5,4 +5,6 @@ export * from './models/task.model';
 export * from './services/data.service';
 export * from './services/todo.service';
 export * from './services/toast.service';
+export * from './services/storage.service';
+
 

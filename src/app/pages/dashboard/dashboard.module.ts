@@ -11,6 +11,7 @@ import { BudgetComponent } from "./budget/budget.component";
 import { TaskCreationComponent } from "./todo/task-creation/task-creation.component";
 import { DataService } from "src/app/core/services/data.service";
 import { CalendarModule } from 'ion2-calendar';
+import { TransactionComponent } from "./transaction/transaction.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { CalendarModule } from 'ion2-calendar';
     ProfileComponent,
     BudgetComponent,
     TaskCreationComponent,
+    TransactionComponent
   ],
   entryComponents: [TaskCreationComponent],
   providers: [DataService]

@@ -20,4 +20,12 @@ export class TodoService {
   public createTask(taskData): Observable<any> {
     return this.http.post(`${environment.baseURL}/Task`, taskData)
   }
+
+  public updateTask(taskData, taskId: number): Observable<any> {
+    return this.http.put(`${environment.baseURL}/Task/${taskId}`, taskData)
+  }
+
+  public deleteTask(taskId: number): Observable<any> {
+    return this.http.delete(`${environment.baseURL}/Task/${taskId}`)
+  }
 }
