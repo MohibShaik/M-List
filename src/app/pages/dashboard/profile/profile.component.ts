@@ -8,7 +8,6 @@ import { AuthService, StorageService, User } from 'src/app/core';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-
   public userData: User
   constructor(private authService: AuthService,
     private storage: StorageService,
@@ -16,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.userData = JSON.parse(this.storage.getItem('user'));
+    console.log(this.userData , 'user data');
   }
 
   public logOut() {

@@ -9,7 +9,7 @@ import { StatsComponent } from './stats/stats.component';
 import { TodoComponent } from './todo/todo.component';
 import { TransactionComponent } from './transaction/transaction.component';
 
-console.log(AuthGuard)
+// console.log(AuthGuard)
 const routes: Routes = [
   {
     path: '',

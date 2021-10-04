@@ -1,3 +1,4 @@
+
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
@@ -18,11 +19,22 @@ import { HttpCallInterceptor } from "./core/utils/http.interceptor";
 // import { environment } from '../environments/environment';
 import { CalendarModule } from 'ion2-calendar';
 import { AuthGuard } from "./core/guards/auth.guard";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [CommonModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule, CalendarModule],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    CalendarModule,
+    SharedModule
+  ],
   providers: [
     DataService,
     StatusBar,

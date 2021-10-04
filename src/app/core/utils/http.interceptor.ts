@@ -35,7 +35,6 @@ export class HttpCallInterceptor implements HttpInterceptor {
             map((event: HttpEvent<any>) => {
                 this.dismiss();
                 if (event instanceof HttpResponse) {
-                    console.log('event--->>>', event);
                 }
                 return event;
             }));

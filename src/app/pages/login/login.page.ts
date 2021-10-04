@@ -4,7 +4,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthService, User } from "src/app/core";
-import { ToastController } from "@ionic/angular";
+import { ModalController, ToastController } from "@ionic/angular";
+import { ModalPage } from 'src/app/shared/pages/modal/modal.page';
 // import { Auth } from 'aws-amplify';
 
 @Component({
@@ -23,6 +24,7 @@ export class LoginPage implements OnInit {
     private loader: LoaderService,
     public toastController: ToastController,
     private storageService: StorageService,
+    public modalCtrl: ModalController,
   ) {
     this.createForm();
   }
@@ -53,25 +55,45 @@ export class LoginPage implements OnInit {
     else {
       this.authService.login(this.loginForm.value).subscribe(response => {
         console.log(response);
-        this.presentToast('Woo hoo! lets enter the space', 'success');
-        this.storageService.setItem('user', JSON.stringify(response));
-        this.storageService.setItem('accessToken', response.accessToken);
-        this.router.navigate(['dashboard'])
+        this.openModal(response, 'success', 'Loggedin Successfully');
       }, (error) => {
         console.log(error);
-        // this.loader.hideLoader();
-        if (error.status === 400 || error.status === 404) {
-          this.presentToast('Ooops! your email and password do not match', 'danger')
+        if (error.status !== 200) {
+          this.openModal(error, 'failure', 'Ooops! your email and password do not match');
         }
       })
     }
 
   }
 
+  async openModal(response, status: string, message: string) {
+    const modalRef = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        status: status,
+        response: response,
+        message: message
+      },
+    });
+
+    modalRef.onDidDismiss().then((modalDataResponse) => {
+      if (modalDataResponse?.data) {
+        this.storageService.setItem('user', JSON.stringify(response));
+        this.storageService.setItem('accessToken', response.accessToken);
+        this.router.navigate(['dashboard'])
+      }
+      else {
+        return;
+      }
+    });
+
+    return await modalRef.present();
+  }
+
   async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 3000,
       color: color
     });
     toast.present();

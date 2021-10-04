@@ -35,9 +35,10 @@ const routes: Routes = [
       import("./pages/dashboard/dashboard.module").then(
         (m) => m.DashboardPageModule
       ),
-  },  {
-    path: 'modal',
-    loadChildren: () => import('./shared/pages/modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'calender',
+    loadChildren: () => import('./shared/pages/calender/calender.module').then( m => m.CalenderPageModule)
   },
 
 ];

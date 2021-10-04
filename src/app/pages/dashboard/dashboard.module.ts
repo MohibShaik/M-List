@@ -1,3 +1,4 @@
+import { CreateTransactionComponent } from './transaction/create-transaction/create-transaction.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -12,6 +13,7 @@ import { TaskCreationComponent } from "./todo/task-creation/task-creation.compon
 import { DataService } from "src/app/core/services/data.service";
 import { CalendarModule } from 'ion2-calendar';
 import { TransactionComponent } from "./transaction/transaction.component";
+import { AddBudgetComponent } from './budget/add-budget/add-budget.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +29,9 @@ import { TransactionComponent } from "./transaction/transaction.component";
     ProfileComponent,
     BudgetComponent,
     TaskCreationComponent,
-    TransactionComponent
+    TransactionComponent,
+    CreateTransactionComponent,
+    AddBudgetComponent
   ],
   entryComponents: [TaskCreationComponent],
   providers: [DataService]

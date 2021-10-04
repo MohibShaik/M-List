@@ -1,14 +1,16 @@
 export class Task {
-  category: string;
-  createdAt: string;
-  description: string;
-  dueDate: string;
-  id: number;
-  priority: string;
-  status: string;
-  title: string;
+  task_uid: number;
+  task_title: string;
+  task_description: string;
+  task_category_id: number;
+  task_category: string;
+  task_due_date: string;
+  task_priority: string;
+  created_user_uid: number;
+  is_active?: boolean;
+  is_complete?: boolean;
   updatedAt: string;
-  userId: number;
+  createdAt: string
 }
 
 export class TaskList {

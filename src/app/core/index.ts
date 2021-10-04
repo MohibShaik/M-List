@@ -6,5 +6,10 @@ export * from './services/data.service';
 export * from './services/todo.service';
 export * from './services/toast.service';
 export * from './services/storage.service';
+export * from './services/transaction.service';
+export * from './models/transaction.model';
+export * from './models/transaction-categories.model';
+export * from './models/budget.model';
+
 
 

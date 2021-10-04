@@ -67,7 +67,7 @@
               <ion-item lines="none">
                 <ion-label position="floating">Mobile Number</ion-label>
                 <ion-input type="text" class="input-field" formControlName="mobileNumber"
-                  onkeypress="return isNumber(event)" maxlength="10"> </ion-input>
+                appNumbersOnly maxlength="10"> </ion-input>
               </ion-item>
               <div class="error" *ngIf="f.mobileNumber.touched && f.mobileNumber.invalid">
                 <div *ngIf="f.mobileNumber.errors?.required">

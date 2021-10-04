@@ -1,0 +1,66 @@
+.transac-type {
+    .content {
+        padding: 10px;
+
+        .cards-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            ion-card {
+                min-width: 130px;
+                min-height: 130px;
+                border-radius: 10px;
+            }
+
+            .selected-card {
+                border: 1px solid #ff3378;
+            }
+
+            .unselected-card {
+                border: none;
+            }
+        }
+    }
+}
+
+.income-icon {
+    color: #2dd36f !important;
+    zoom: 2;
+}
+
+.expense-icon {
+    color: #eb445a !important;
+    zoom: 2;
+}
+
+.input-wrapper {
+    ion-item {
+        // margin-right: 30px;
+        margin-top: 10px;
+        min-height: 55px;
+        border: 1px solid;
+        border-radius: 10px;
+
+        ion-label,
+        .input-field {
+            font-size: 16px;
+            letter-spacing: 0.8px;
+            // font-weight: 600;
+        }
+    }
+}
+
+.error {
+    padding-top: 5px;
+    color: red;
+    font-size: 13px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+ion-row{
+    padding: 10px;
+}

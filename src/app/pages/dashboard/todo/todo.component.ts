@@ -12,13 +12,15 @@ import { TaskCreationComponent } from "./task-creation/task-creation.component";
   styleUrls: ["./todo.component.scss"],
 })
 export class TodoComponent implements OnInit {
-  public currentDate: string;
+  public currentDate: any;
   public slidesOptions = {
     initialSlide: 3,
     speed: 400,
   };
   public userData: User;
   public AllTasks: any;
+  public toggleCalender: boolean = false;
+  selectedDate: any;
   constructor(
     private authService: AuthService,
     public modalCtrl: ModalController,
@@ -28,15 +30,16 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentDate = moment().format(" Do MMM  YY");
+    this.currentDate = moment();
+    this.selectedDate = moment();
     this.userData = JSON.parse(this.storage.getItem('user'));
     this.getAllTasks();
   }
 
   public getAllTasks() {
     this.todoService.getAllTasks(this.userData?.id).subscribe(response => {
-      console.log(response);
-      this.AllTasks = response.filter(task => task.status.toLowerCase() === 'active' || task.status.toLowerCase() === 'completed');
+      this.AllTasks = response;
+      console.log(this.AllTasks);
     }, (error) => {
       this.toastService.presentToast('Oops! something went wrong.', 'danger');
     })
@@ -55,7 +58,7 @@ export class TodoComponent implements OnInit {
 
 
   public deleteTask(task: Task, slidingItem) {
-    this.todoService.deleteTask(task?.id).subscribe(response => {
+    this.todoService.deleteTask(task?.task_uid).subscribe(response => {
       console.log(response);
       slidingItem.close();
       this.getAllTasks();
@@ -66,17 +69,18 @@ export class TodoComponent implements OnInit {
 
   public updateTask(task: Task, slidingItem) {
     const taskData = {
-      category: task.category,
-      description: task.description,
-      dueDate: task.dueDate,
-      id: task.id,
-      priority: task.priority,
-      status: "completed",
-      title: task.title,
-      userId: task.userId
+      category: task.task_category,
+      description: task.task_description,
+      dueDate: task.task_due_date,
+      id: task.task_uid,
+      priority: task.task_priority,
+      isCompleted: true,
+      isActive: true,
+      title: task.task_title,
+      userId: task.created_user_uid
     }
 
-    this.todoService.updateTask(taskData, task?.id).subscribe(response => {
+    this.todoService.updateTask(taskData, task.task_uid).subscribe(response => {
       console.log(response);
       slidingItem.close();
       this.getAllTasks();
@@ -87,5 +91,12 @@ export class TodoComponent implements OnInit {
 
   public closeItem(slidingItem) {
     slidingItem.close();
+  }
+
+  public onDateSelection(event, eleRef) {
+    console.log(event);
+    this.toggleCalender = !this.toggleCalender;
+    this.selectedDate = moment(event);
+
   }
 }

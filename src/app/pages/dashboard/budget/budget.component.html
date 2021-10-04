@@ -1,56 +1,53 @@
-<ion-toolbar>
+<ion-toolbar color="black">
   <ion-title>
     <div class="container">
-      <h4 class="fw-600 f-18">Budget</h4>
-      <ion-icon name="add-outline" (click)="openModal()"></ion-icon>
+      <h4 class="fw-600 f-20">Budget</h4>
+      <div class="icons">
+        <ion-icon name="add-outline" (click)="openModal()"></ion-icon>
+        <!-- <ion-icon name="search-outline" class="icon-bar"></ion-icon> -->
+      </div>
     </div>
   </ion-title>
-
-
 </ion-toolbar>
 
 
 <ion-content>
 
-  <ion-card class="budget-card">
+  <ion-row>
+    <ion-col size="12">
+      <ion-searchbar color="light" class="search-bar" (ionInput)="filterBudgets($event)"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-card class="budget-card" *ngFor="let budget of budgetList">
     <div class="header">
       <div class="budget-name">
-        <p>budget-name</p>
-      </div>
-
-      <div class="amount">
-        <h4>$2444.0 </h4>
-        <p class="fw-400">$5000.0</p>
+        <p class="grey-color">{{budget?.budget_name}}</p>
       </div>
     </div>
-  </ion-card>
 
-  <ion-card class="budget-card">
-    <div class="header">
-      <div class="budget-name">
-        <p>budget-name</p>
-      </div>
-
+    <ion-card-content>
       <div class="amount">
-        <h4>$2444.0 </h4>
-        <p class="fw-400">$5000.0</p>
+        <div class="completed-amount">
+          <span class="m-0 pl-15 f-20 fw-600 black">{{budget?.totalTransactionAmount | currency:'INR'}}</span>
+          <span class="m-0 pl-10 f-12 black">{{budget?.completedBudgetPercentage + '%' }}</span>
+        </div>
+
+        <p class="m-0 pr-15 fw-600 grey-color">{{budget?.budget_amount | currency:'INR'}}</p>
       </div>
+
+      <div class="progress">
+        <ion-progress-bar [color]="budget?.completedBudgetPercentage> 50 ? 'danger' : 'success'"
+          [value]="budget?.completedBudgetPercentage" [style.width]="budget?.completedBudgetPercentage + '%'">
+        </ion-progress-bar>
+      </div>
+    </ion-card-content>
+
+    <div class="card-footer">
+      <ion-button class="f-12 view-details-btn" size="small">View Details</ion-button>
     </div>
+
+
   </ion-card>
-
-
-  <ion-card class="budget-card">
-    <div class="header">
-      <div class="budget-name">
-        <p>budget-name</p>
-      </div>
-
-      <div class="amount">
-        <h4>$2444.0 </h4>
-        <p class="fw-400">$5000.0</p>
-      </div>
-    </div>
-  </ion-card>
-
-
 </ion-content>

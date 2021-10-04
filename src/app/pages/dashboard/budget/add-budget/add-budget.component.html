@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/budget" (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+     <ion-title>
+      <h4 class="fw-600 f-18">Create budget</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="createBudgetForm">
+      <ion-row>
+        <ion-col text-center size="12">
+          <ion-item lines='none'>
+            <ion-label position="floating">Choose Category</ion-label>
+            <ion-select  formControlName="budgetCategory">
+              <ion-select-option *ngFor="let option of categoriesList" [value]="option?.transaction_category_name">{{option?.transaction_category_name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <!-- 2nd row  -->
+      <ion-row>
+        <ion-col class="col-value" text-center size="12">
+          <ion-item lines='none'>
+            <ion-label position="floating">Budget Name</ion-label>
+            <ion-input formControlName="name" placeholder="enter the budget name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col class="col-value" text-center size="12">
+          <ion-item lines='none'>
+            <ion-label position="floating">Enter Budget</ion-label>
+            <ion-input formControlName="amount" placeholder="enter the budget value"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col textContent size="12">
+          <ion-button expand="block" color="primary" class="out-btn" [disabled]="!createBudgetForm.valid"
+            (click)="onSubmittingBudget()">Create Budget
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

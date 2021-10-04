@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar  color="black">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/transactions" (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h4 class="fw-600 f-18">Add Transaction</h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- todo : 1) step:1 - type of transaction 2)  -->
+<ion-content  color="black">
+  <form [formGroup]="newTransactionForm">
+
+    <div class="transac-type" *ngIf="!hadTransactionType">
+
+      <div class="image-section">
+        <img src="../../../../../assets/images/transaction-type.jpg" alt="">
+      </div>
+
+      <div class="content">
+        <h1 class="f-20 fw-bold">What kind of transaction it is?</h1>
+
+        <div class="cards-list">
+
+          <ion-card [ngClass]="transactionType[0].showSelected? 'selected-card':'unselected-card'"
+            (click)="selectTransactionype(0)">
+            <ion-card-header>
+              <ion-icon name="caret-down-circle" class="income-icon"></ion-icon>
+            </ion-card-header>
+
+            <ion-card-content>
+              <h2 class="pt-20 fw-bold">Credit</h2>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card [ngClass]="transactionType[1].showSelected? 'selected-card':'unselected-card'"
+            (click)="selectTransactionype(1)">
+            <ion-card-header>
+              <ion-icon name="caret-up-circle" class="expense-icon"></ion-icon>
+            </ion-card-header>
+
+            <ion-card-content>
+              <h2 class="pt-20 fw-bold">Debit</h2>
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+        <ion-row class="pt-20">
+          <ion-col size="12">
+            <ion-button expand="block" color="primary" class="out-btn"
+              (click)="hadTransactionType = !hadTransactionType">continue</ion-button>
+          </ion-col>
+        </ion-row>
+
+      </div>
+    </div>
+
+    <!-- other details  -->
+    <div class="other-details" *ngIf="hadTransactionType">
+
+      <ion-row>
+        <ion-col size="12" class="input-wrapper">
+          <ion-item lines="none">
+            <ion-label position="floating" >Transaction Type</ion-label>
+            <ion-input class="input-field" [value]="f.type.value"  readonly></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <!-- payeeName  -->
+      <ion-row >
+        <ion-col size="12" class="input-wrapper">
+          <ion-item lines="none">
+            <ion-label position="floating" >Payee Name</ion-label>
+            <ion-input class="input-field" formControlName="payeeName" ></ion-input>
+          </ion-item>
+
+          <div class="error" *ngIf="f.payeeName.touched && f.payeeName.invalid">
+            <div *ngIf="f.payeeName.errors?.required">
+              payeeName is Required
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- category  -->
+      <ion-row >
+        <ion-col size="12" class="input-wrapper">
+          <ion-item lines="none">
+            <ion-label position="floating">Choose Budget</ion-label>
+            <ion-select formControlName="budgetId">
+              <ion-select-option *ngFor="let c of budgetList" [value]="c.budget_uid" >{{c.budget_name}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div class="error" *ngIf="f.budgetId.touched && f.budgetId.invalid">
+            <div *ngIf="f.budgetId.errors?.required">
+              Please select a budget
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row >
+        <ion-col size="12" class="input-wrapper">
+          <ion-item lines="none">
+            <ion-label position="floating">Amount</ion-label>
+            <ion-input class="input-field" formControlName="amount" appNumbersOnly ></ion-input>
+          </ion-item>
+
+          <div class="error" *ngIf="f.amount.touched && f.amount.invalid">
+            <div *ngIf="f.amount.errors?.required">
+              Amount is Required
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row >
+        <ion-col size="12" class="input-wrapper">
+          <ion-item lines="none" (click)="toggleCalender= !toggleCalender">
+            <ion-label position="floating">Date</ion-label>
+            <ion-input class="input-field" type='text' [value]="selectedDate" readonly></ion-input>
+            <ion-icon name="calendar-outline" slot="end" class="mt-15"></ion-icon>
+          </ion-item>
+          <ion-calendar #calender *ngIf="toggleCalender" (change)="onDateSelection($event , calender)" formControlName="transactionDate"
+            [type]="type" [format]="'YYYY-MM-DD'">
+          </ion-calendar>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="block" color="primary" class="out-btn"
+            (click)="createTransaction()">Create Transaction</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+  </form>
+
+
+</ion-content>
