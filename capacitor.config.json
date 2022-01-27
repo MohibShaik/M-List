@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "io.mlist.app",
   "appName": "M'List",
   "bundledWebRuntime": false,
   "npmClient": "npm",
